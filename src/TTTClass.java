@@ -160,26 +160,26 @@ public class TTTClass extends UnicastRemoteObject implements TTTInterface {
 	@Override
 	public String currentBoard(Integer player) throws RemoteException{
 		Game currentGame = user2game.get(player);
-		StringBuilder sb = new StringBuilder();
-		sb.append("\n\n ");
+		StringBuilder sbuilder = new StringBuilder();
+		sbuilder.append("\n\n ");
 
 		// acquire lock for current object
 		synchronized (this) {
-			sb.append(currentGame.board[0][0]).append(" | ");
-			sb.append(currentGame.board[0][1]).append(" | ");
-			sb.append(currentGame.board[0][2]).append(" ");
-			sb.append("\n---+---+---\n ");
-			sb.append(currentGame.board[1][0]).append(" | ");
-			sb.append(currentGame.board[1][1]).append(" | ");
-			sb.append(currentGame.board[1][2]).append(" ");
-			sb.append("\n---+---+---\n ");
-			sb.append(currentGame.board[2][0]).append(" | ");
-			sb.append(currentGame.board[2][1]).append(" | ");
-			sb.append(currentGame.board[2][2]).append(" \n");
+			sbuilder.append(currentGame.board[0][0]).append(" | ");
+			sbuilder.append(currentGame.board[0][1]).append(" | ");
+			sbuilder.append(currentGame.board[0][2]).append(" ");
+			sbuilder.append("\n---+---+---\n ");
+			sbuilder.append(currentGame.board[1][0]).append(" | ");
+			sbuilder.append(currentGame.board[1][1]).append(" | ");
+			sbuilder.append(currentGame.board[1][2]).append(" ");
+			sbuilder.append("\n---+---+---\n ");
+			sbuilder.append(currentGame.board[2][0]).append(" | ");
+			sbuilder.append(currentGame.board[2][1]).append(" | ");
+			sbuilder.append(currentGame.board[2][2]).append(" \n");
 		}
 		// release lock
 
-		return sb.toString();
+		return sbuilder.toString();
 	}
 
 	/** Make a game play on behalf of provided player. */
