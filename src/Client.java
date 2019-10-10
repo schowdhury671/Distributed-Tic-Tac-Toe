@@ -89,5 +89,10 @@ public class Client {
         catch (RemoteException e){ e.printStackTrace();}
         catch (NotBoundException e){ e.printStackTrace();}
     }
+    public void handle_race(){
+  static volatile boolean flag = false;
+    ForkJoinPool.commonPool().execute(RaceConditionExample::raiseFlag);
+    System.out.print(flag);
 
+}
 }
